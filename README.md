@@ -109,6 +109,8 @@ Not confirmed: a net reduction in total cost. Net cost per unit of work rose 3.8
 
 See [`setup/`](setup/). It contains seven subagent definitions pinned to specific model tiers, and three policy blocks for `CLAUDE.md`. It is a small, deliberately curated configuration rather than a large library. Adoption data above suggests the curation matters: a smaller set of clearly differentiated agents was selected by the routing model in 47% of dispatches, where the prior state was 1%.
 
+`setup/` is held fixed as the exact configuration these results describe. The fuller optimization stack, which adds tool-output filtering and session hygiene to model tiering and continues to change, is at [claude-code-token-optimization](https://github.com/makinggainz/claude-code-token-optimization). This repository is the evidence; that one is the configuration.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

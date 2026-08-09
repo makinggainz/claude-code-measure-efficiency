@@ -1,6 +1,8 @@
 # The measured setup
 
-Seven subagent definitions and three policy blocks. This is the configuration evaluated in the root [README](../README.md).
+Seven subagent definitions and three policy blocks. This is the configuration evaluated in the root [README](../README.md), kept fixed as the exact setup those results describe.
+
+Model tiering is one layer of a larger stack. The others, tool-output filtering and session hygiene, are not represented here because they were not part of the measured change. They are in [claude-code-token-optimization](https://github.com/makinggainz/claude-code-token-optimization), which is the maintained configuration. This directory is a snapshot.
 
 The design principle is model tiering: work whose failure mode is cheap and immediately visible runs on inexpensive models, and work whose failure mode is expensive stays on capable ones. Reasoning is never moved down a tier to save cost.
 
