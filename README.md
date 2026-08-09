@@ -1,11 +1,11 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img src="assets/banner-light.svg" alt="Cost per turn rising across one unbroken session, each bar split to show cache read as roughly two thirds of the total, with a caliper measuring the peak.">
+  <img src="assets/banner-light.svg" alt="A single cost figure divided into the components these scripts report, cache read, cache write and output, drawn beneath a measuring scale.">
 </picture>
 
 # claude-code-measure-efficiency
 
-*Above: the shape these scripts measure, drawn rather than plotted. Cost per turn rises as a session accumulates transcript, and cache read is the largest part of it.*
+*Above: what these scripts do. One cost figure taken apart into the components that drive it. Proportions are illustrative, not a plot of your data.*
 
 Measure how efficiently you use Claude Code. Four local scripts read the transcripts Claude Code already writes to disk and report where your tokens go: model tier mix, cache economics, cost per unit of work, per-session context growth, and rework signals. Run them on their own to judge your current usage, or before and after a configuration change to verify that an optimization actually worked.
 
