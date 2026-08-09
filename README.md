@@ -7,7 +7,7 @@
 
 *Above: the shape these scripts measure, drawn rather than plotted. Cost per turn rises as a session accumulates transcript, and cache read is the largest part of it.*
 
-Measure how efficiently you use Claude Code. Three local scripts read the transcripts Claude Code already writes to disk and report where your tokens go: model tier mix, cache economics, cost per unit of work, and rework signals. Run them on their own to judge your current usage, or before and after a configuration change to verify that an optimization actually worked.
+Measure how efficiently you use Claude Code. Four local scripts read the transcripts Claude Code already writes to disk and report where your tokens go: model tier mix, cache economics, cost per unit of work, per-session context growth, and rework signals. Run them on their own to judge your current usage, or before and after a configuration change to verify that an optimization actually worked.
 
 Most published Claude Code optimization guides assert a saving. Few provide a way to verify one. This repository contains the measurement scripts, the optimization setup that was evaluated with them (a seven-agent model-tiering configuration in `setup/`), and the reference results from that evaluation. The results below include both the effects that were confirmed and the effect that was not.
 
