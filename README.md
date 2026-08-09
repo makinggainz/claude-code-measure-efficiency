@@ -9,10 +9,11 @@ Everything runs locally. The scripts read `~/.claude/projects/**/*.jsonl`, trans
 ## Contents
 
 ```
-tools/usage_report.py   token mix by model tier, cache economics, subagent dispatch counts
-tools/decompose.py      cost per unit of work, split into four components
-tools/friction.py       rework proxies: tool errors, correction rate, edit churn
-setup/                  the seven-agent configuration and policy blocks that were measured
+tools/usage_report.py     token mix by model tier, cache economics, subagent dispatch counts
+tools/decompose.py        cost per unit of work, split into four components
+tools/friction.py         rework proxies: tool errors, correction rate, edit churn
+tools/session_growth.py   per-session context growth and cost concentration
+setup/                    the seven-agent configuration and policy blocks that were measured
 ```
 
 ## Requirements
@@ -26,6 +27,7 @@ python3 tools/usage_report.py                    # last 14 days
 python3 tools/usage_report.py --since 2026-08-03  # compare two periods
 python3 tools/decompose.py 2026-08-03             # cost decomposition across a change date
 python3 tools/friction.py 2026-08-03              # rework proxies across a change date
+python3 tools/session_growth.py                   # per-session context growth, last 14 days
 ```
 
 Pass the date a configuration change took effect. Each script splits the transcript history into a before period and an on/after period.
@@ -71,6 +73,8 @@ The cause of the cache read increase is visible in the workload shape. Sessions 
 Cache reads accounted for 57.2% of cost in the baseline period and 65.4% after. This is the most transferable finding in the dataset: for this workload, session length governs cost more than model selection does.
 
 Holding cache read per unit at its baseline value produces a total of 195.6, or −7.0%. That figure is a model rather than a measurement. It assumes session length would have been unchanged, which is an assumption, not an observation.
+
+`tools/session_growth.py` reports this cost per session, so the sessions that grew past their task, where a fresh session would have paid, are visible individually.
 
 ### Rework proxies
 
