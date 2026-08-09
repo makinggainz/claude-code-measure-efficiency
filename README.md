@@ -1,11 +1,11 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img src="assets/banner-light.svg" alt="A single cost figure divided into the components these scripts report, cache read, cache write and output, drawn beneath a measuring scale.">
+  <img src="assets/banner-light.svg" alt="A single beam entering a prism and leaving as four equal bands, labelled tier mix, cache economics, cost per unit of work, and rework signals.">
 </picture>
 
 # claude-code-measure-efficiency
 
-*Above: what these scripts do. One cost figure taken apart into the components that drive it. Proportions are illustrative, not a plot of your data.*
+*Above: the idea, not a result. One aggregate number separated into the parts that explain it. The bands are drawn equal on purpose, because nothing in this image is a measurement.*
 
 Measure how efficiently you use Claude Code. Four local scripts read the transcripts Claude Code already writes to disk and report where your tokens go: model tier mix, cache economics, cost per unit of work, per-session context growth, and rework signals. Run them on their own to judge your current usage, or before and after a configuration change to verify that an optimization actually worked.
 
