@@ -36,9 +36,9 @@ Each agent is a single file. Delete a file to remove that agent. No other state 
 
 Two design notes that the adoption data supports:
 
-`scout` exists because the built-in Explore agent inherits the main conversation model. Unguided searching therefore runs at the main model's rate. A Haiku-pinned alternative with an explicit description displaced it: Explore dispatches fell from 46 to 8 after installation.
+`scout` exists because the built-in Explore agent inherits the main conversation model. Unguided searching therefore runs at the main model's rate. A Haiku-pinned alternative with an explicit description displaced it: Explore dispatches fell from 43 to 8 after installation.
 
-The set is deliberately small. Large agent libraries create overlapping descriptions, and the routing model selects by matching a task against those descriptions. Seven differentiated agents were selected in 47% of dispatches. Curation appears to matter more than coverage.
+The set is deliberately small. Large agent libraries create overlapping descriptions, and the routing model selects by matching a task against those descriptions. Seven differentiated agents were selected in 70% of dispatches, where the prior state was 2%. Curation appears to matter more than coverage.
 
 ## The policy blocks
 
