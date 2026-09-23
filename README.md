@@ -47,7 +47,9 @@ Pass the date a configuration change took effect. Each script splits the transcr
 
 Cost-equivalent is computed by applying published API list rates to observed token counts. It is a comparison unit between periods. It is not a bill and does not represent subscription pricing. Rates are defined at the top of each script and should be updated when list prices change.
 
-Cache reads are priced at 0.1x the input rate. Cache writes are priced at 1.25x. Both are configurable constants.
+Rates are matched by model id, most specific first, because cache reads are not a fixed multiple of the input rate on every model: 0.1x on most, 0.05x on Opus 5.5, 0.025x on Fable 5.1. Cache writes are priced at 1.25x the input rate for the 5-minute TTL and 2x for the 1-hour TTL, using the TTL breakdown each transcript record carries; records without it are priced as 5-minute.
+
+The reference results below were produced by an earlier version that priced every cache read at 0.1x and every cache write at 1.25x. They have not been recomputed under the current rates, because the baseline transcripts no longer exist.
 
 ## Reference results
 
