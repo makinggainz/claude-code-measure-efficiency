@@ -47,9 +47,11 @@ Pass the date a configuration change took effect. Each script splits the transcr
 
 Cost-equivalent is computed by applying published API list rates to observed token counts. It is a comparison unit between periods. It is not a bill and does not represent subscription pricing. Rates are defined at the top of each script and should be updated when list prices change.
 
-Rates are matched by model id, most specific first, because cache reads are not a fixed multiple of the input rate on every model: 0.1x on most, 0.05x on Opus 5.5, 0.025x on Fable 5.1. Cache writes are priced at 1.25x the input rate for the 5-minute TTL and 2x for the 1-hour TTL, using the TTL breakdown each transcript record carries; records without it are priced as 5-minute.
+Rates are matched by model id, most specific first, because cache reads are not a fixed multiple of the input rate on every model: 0.1x on most, 0.05x on Opus 5.5 and Sonnet 5.5, 0.025x on Fable 5.1 and 5.2. Haiku 5.5 is priced by prompt size, with higher rates for prompts over 100,000 tokens. Cache writes are priced at 1.25x the input rate for the 5-minute TTL and 2x for the 1-hour TTL, using the TTL breakdown each transcript record carries; records without it are priced as 5-minute.
 
 The reference results below were produced by an earlier version that priced every cache read at 0.1x and every cache write at 1.25x. They have not been recomputed under the current rates, because the baseline transcripts no longer exist.
+
+Usage is counted once per API response. Claude Code writes one transcript record per content block (thinking, text, each tool call) and repeats the response's full usage on every one, so earlier versions summed each request two to three times. On a recent week of data the old totals came out about 3x the corrected ones, and output tokens about 3.6x. The scripts now count a response once, by its message id and request id. The reference results below also predate this fix. Ratios between periods move less than absolute totals, since both periods carried the duplication, but not by a uniform factor: a response with more tool calls was counted more times.
 
 ## Reference results
 
